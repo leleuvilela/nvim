@@ -27,6 +27,16 @@ return {
   {
     'stevearc/conform.nvim',
     optional = true,
+    keys = {
+      {
+        "<leader>cf",
+        function()
+          require("conform").format { async = true }
+        end,
+        mode = "",
+        desc = "Format buffer",
+      },
+    },
     opts = function(_, opts)
       opts.formatters_by_ft = opts.formatters_by_ft or {}
       for _, ft in ipairs(supported) do
